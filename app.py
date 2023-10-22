@@ -2,10 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# leer nuestra base de datos y asegurarnos que cumple con nuestro standard para tener datos limpios y utilizables
+# leer nuestra base de datos
 car_data = pd.read_csv('vehicles_us.csv')
-df['column_name'] = df['column_name'].str.strip().str.lower()
-df = df.drop_duplicates()
 
 # Encabezado
 st.header('Analisis of vehicles in the US')
