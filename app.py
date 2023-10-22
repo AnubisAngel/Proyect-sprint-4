@@ -16,17 +16,22 @@ options = [
 ]
 # codigo para poder seleccionar las opciones
 selected_options = st.multiselect('Select options to plot:', options)
+# codigo para variable Y
+selected_y_variable = st.selectbox(
+    'Select the y-variable for comparison:', options)
 # codigo para seleccionar si deseamos un histograma o un cuadro de dispersion
 build_histogram = st.checkbox('Build a histogram')
 build_scatter = st.checkbox('Build a scatter plot')
 
 if selected_options:
     for selected_option in selected_options:
-        st.write(f'Creation of a graphic for column {selected_option}')
+        st.write(
+            f'Creation of a graphic for column {selected_option}(Y-variable: {selected_y_variable})')
 
         if build_histogram:
             # Si seleccionaron la opcion histograma
-            fig = px.histogram(car_data, x=selected_option)
+            fig = px.histogram(car_data, x=selected_option,
+                               y=selected_y_variable)
             st.plotly_chart(fig, use_container_width=True)
 
         if build_scatter:
@@ -34,5 +39,6 @@ if selected_options:
             st.write(
                 f'Creation of a scatter plot for the column {selected_option}')
             # se puede cambiar la variable price por cualquier otra opcion
-            fig = px.scatter(car_data, x=selected_option, y="price")
+            fig = px.scatter(car_data, x=selected_option,
+                             y=selected_y_variable)
             st.plotly_chart(fig, use_container_width=True)
