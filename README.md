@@ -1,2 +1,3 @@
 # Proyect-sprint-4
 Proyecto de entrega del cuarto sprint
+En este proyecto analizamos el dataframe vehicles_us el cual incluye la siguiente informacion : price,model_year,model,condition,cylinders,fuel,odometer,transmission,type,paint_color,is_4wd,date_posted,days_listed de 51525 vehiculos el proposito de esta aplicacion es poder conocer la informacion de cada apartado en relacion con todos los vehiculos, por ejemplo cuantos vehiculos son del ano 2008 o cuantos funcionan a base de gasolina o diesel. en este mismo concepto decidimos aceptar el desafio de reemplazar botones por casillas de verificacion para hacer la experiencia mas interactiva y personalizable 

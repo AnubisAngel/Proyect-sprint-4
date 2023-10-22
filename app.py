@@ -1,0 +1,37 @@
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+
+car_data = pd.read_csv('vehicles_us.csv')
+
+st.header('Analisis of vehicles in the US')
+
+
+options = [
+    "price", "model_year", "model", "condition", "cylinders", "fuel",
+    "odometer", "transmission", "type", "paint_color", "is_4wd",
+    "date_posted", "days_listed"
+]
+
+selected_options = st.multiselect('Select options to plot:', options)
+
+build_histogram = st.checkbox('Build a histogram')
+build_scatter = st.checkbox('Build a scatter plot')
+
+if selected_options:
+    for selected_option in selected_options:
+        st.write(f'Creation of a graphic for column {selected_option}')
+
+        if build_histogram:
+            # If the 'Build a histogram' checkbox is selected
+            fig = px.histogram(car_data, x=selected_option)
+            st.plotly_chart(fig, use_container_width=True)
+
+        if build_scatter:
+            # If the 'Build a scatter plot' checkbox is selected
+            st.write(
+                f'Creation of a scatter plot for the column {selected_option}')
+            # You can change "price" to the desired y-column
+            fig = px.scatter(car_data, x=selected_option, y="price")
+            st.plotly_chart(fig, use_container_width=True)
