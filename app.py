@@ -26,7 +26,7 @@ build_scatter = st.checkbox('Build a scatter plot')
 if selected_options:
     for selected_option in selected_options:
         st.write(
-            f'Creation of a graphic for column {selected_option}( and Y-axis: {selected_y_variable})')
+            f'Creation of a graphic for column '{selected_option}'( and Y-axis: {selected_y_variable})')
 
         if build_histogram:
             # Si seleccionaron la opcion histograma
@@ -37,7 +37,7 @@ if selected_options:
         if build_scatter:
             # si seleccionaron el grafico de dispersion
             st.write(
-                f'Creation of a scatter plot for the column {selected_option}( and Y-axis: {selected_y_variable})')
+                f'Creation of a scatter plot for the column '{selected_option}'( and Y-axis: {selected_y_variable})')
             # se puede cambiar la variable price por cualquier otra opcion
             fig = px.scatter(car_data, x=selected_option,
                              y=selected_y_variable)
