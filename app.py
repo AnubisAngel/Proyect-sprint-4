@@ -27,14 +27,14 @@ if selected_options:
         st.write(f'Creation of a graphic for column {selected_option}')
 
         if build_histogram:
-            # If the 'Build a histogram' checkbox is selected
+            # Si seleccionaron la opcion histograma
             fig = px.histogram(car_data, x=selected_option)
             st.plotly_chart(fig, use_container_width=True)
 
         if build_scatter:
-            # If the 'Build a scatter plot' checkbox is selected
+            # si seleccionaron el grafico de dispersion
             st.write(
                 f'Creation of a scatter plot for the column {selected_option}')
-            # You can change "price" to the desired y-column
+            # se puede cambiar la variable price por cualquier otra opcion
             fig = px.scatter(car_data, x=selected_option, y="price")
             st.plotly_chart(fig, use_container_width=True)
